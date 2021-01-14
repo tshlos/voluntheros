@@ -1,6 +1,6 @@
-import React from 'react';
 
-function VolunteerTask(props) {
+
+function VolunteerTask() {
     return (
         <div>
             
