@@ -1,4 +1,4 @@
 class Volunteer < ApplicationRecord
     has_many :tasks
-    has_elderlies, through: :tasks
+    has_many :elderlies, through: :tasks
 end
