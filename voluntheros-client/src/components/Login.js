@@ -5,8 +5,9 @@ function Login() {
 
     const [username, setUsername] = useState('')
     return (
-        <div login>
-            <h2>login</h2>
+
+        <div className="login">
+
             <div login-form>
                 <form onSubmit={e => setUsername({username: e.target.value})}>
                     <input
