@@ -1,6 +1,6 @@
 
 
-function SignUp() {
+function Elders() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function SignUp() {
     );
 }
 
-export default SignUp;
+export default Elders;

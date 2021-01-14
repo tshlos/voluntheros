@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 
 // can see both volunteers and grandparents
-class HomePage extends Component {
-    render() {
+function HomePage() {
         return (
             <div>
                 
             </div>
         );
-    }
 }
 
 export default HomePage;

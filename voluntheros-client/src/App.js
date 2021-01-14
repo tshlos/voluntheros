@@ -1,7 +1,9 @@
 
 import './App.css';
+import React, { Component } from 'react';
 import TaskList from './components/TaskList';
 import Login from './components/Login'
+
 function App() {
   return (
     <div className="App">
@@ -12,5 +14,4 @@ function App() {
   );
 
 }
-
 export default App;
