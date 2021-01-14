@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-class Volunteer extends Component {
+// profile page
+class Elders extends React.Component {
+
     render() {
         return (
             <div>
@@ -10,4 +12,4 @@ class Volunteer extends Component {
     }
 }
 
-export default Volunteer;
+export default Elders;
