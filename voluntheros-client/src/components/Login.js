@@ -7,7 +7,7 @@ function Login() {
     return (
         <div login>
             <div login-form>
-                <form onSubmit={e => setUsername()}>
+                <form onSubmit={e => setUsername(username: e.target.value)}>
                     <input
                     onChange={e => setUsername({username: e.target.value})}
                      type="text" 

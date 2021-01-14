@@ -1,28 +1,16 @@
-<<<<<<< HEAD
+
 import './App.css';
 import TaskList from './components/TaskList';
-
+import Login from './components/Login'
 function App() {
   return (
     <div className="App">
       <h1> HELLO </h1>
       <TaskList />
+      <Login />
     </div>
   );
-=======
-import React, { Component } from 'react';
 
-import Login from './components/Login'
-
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Login />
-      </div>
-    );
-  }
->>>>>>> c03704e81913b9b407cbecc1705d7da76d841d1b
 }
 
 export default App;
