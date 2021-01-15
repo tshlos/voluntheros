@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route, useHistory, NavLink } from "rea
 import React, { useEffect, useState } from 'react';
 import TaskList from './components/TaskList';
 import Login from './components/Login'
+import Elders from './components/Elders'
+import Volunteer from './components/Volunteer'
 import HomePage from './components/HomePage'
 import SignUp from './components/SignUp';
 import { fetchElderly, fetchVolunteers } from './api';
@@ -10,20 +12,25 @@ import { fetchElderly, fetchVolunteers } from './api';
 function App() {
 
   const [username, setUsername] = useState({ })
-  const [people, setPeople] = useState([]);
+  const [people, setPeople] = useState();
+  const [elderly, setElderly] = useState();
 
   useEffect(() => {
     fetchElderly()
-    .then(console.log)
-    // .then(json => setPeople(json))
-  }, []);
+    // .then(console.log)
+    .then(json => setPeople(json))
 
-  useEffect(() => {
     fetchVolunteers()
-    .then(json => setPeople(prevPeople => ([...prevPeople, json])))
+    .then(json => {
+      json.map(info => {
+        setPeople(prevPeople => ([...prevPeople, info]))
+      })
+    })
+
   }, []);
 
   console.log(people)
+
   return (
     <div className="App">
     <Router>
@@ -48,9 +55,11 @@ function App() {
           <TaskList/>
         </Route>
         <Route path='/home'>
-          {/* { volunteer or elder ? <Elders/> : <Volunteer/>} */}
+          {people.find(user => user['username'] === username) ? 
+          <Elders/>
+          :
+          <Volunteer/>}
         </Route>
-        {/* need to see how we are pulling info to do this */}
       </Switch>
     </Router>
     </div>
