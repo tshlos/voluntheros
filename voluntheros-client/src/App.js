@@ -1,23 +1,29 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, useHistory, NavLink } from "react-router-dom";
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import TaskList from './components/TaskList';
 import Login from './components/Login'
 import HomePage from './components/HomePage'
 import SignUp from './components/SignUp';
+import { fetchElderly } from './api';
 
 function App() {
+
+  useEffect(() => {
+    fetchElderly()
+    .then(console.log)
+  }, []);
+
   return (
     <div className="App">
     <Router>
       <div id='nav'>
-        <NavLink to='/' exact></NavLink>
+        <NavLink to='/' exact>Volunthero</NavLink>
         <NavLink to='/login' className='tabs'>Login</NavLink>
         <NavLink to='/signUp' className='tabs'>SignUp</NavLink>
         <NavLink to='/tasks' className='tabs'>Tasks</NavLink>
         <NavLink to='/profile' className='tabs'>Profile</NavLink>
       </div>
-      <h1> HELLO </h1>
       <Switch>
         <Route path='/login'>
           <Login />
