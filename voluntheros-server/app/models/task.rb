@@ -1,4 +1,4 @@
 class Task < ApplicationRecord
-  belongs_to :volunteer
-  belongs_to :elderly, optional: true
+  belongs_to :elderly
+  belongs_to :volunteer, optional: true
 end

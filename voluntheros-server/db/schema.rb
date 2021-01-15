@@ -26,12 +26,11 @@ ActiveRecord::Schema.define(version: 2021_01_14_203519) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "details"
-    t.integer "volunteers_id", null: false
+    t.integer "volunteers_id"
     t.integer "elderly_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["elderly_id"], name: "index_tasks_on_elderly_id"
-    t.index ["volunteers_id"], name: "index_tasks_on_volunteers_id"
   end
 
   create_table "volunteers", force: :cascade do |t|
@@ -44,5 +43,4 @@ ActiveRecord::Schema.define(version: 2021_01_14_203519) do
   end
 
   add_foreign_key "tasks", "elderlies"
-  add_foreign_key "tasks", "volunteers", column: "volunteers_id"
 end
