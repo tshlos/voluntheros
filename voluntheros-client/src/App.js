@@ -36,6 +36,14 @@ function App() {
 
   // }, []);
 
+
+
+  console.log(people)
+
+  console.log(logged)
+
+  console.log(username)
+
   return (
     <div className="App">
     <Router>
