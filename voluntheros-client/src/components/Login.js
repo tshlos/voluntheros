@@ -13,7 +13,6 @@ function Login({ setUsername}) {
 
     function handleSubmit(e) {
         e.preventDefault();
-
         setUsername(form.username)
     }
 
@@ -21,7 +20,7 @@ function Login({ setUsername}) {
 
         <div className="login">
 
-            <div login-form>
+            <div className="login-form">
                 <form onSubmit={handleSubmit}>
                     <input
                     onChange={handleChange}
