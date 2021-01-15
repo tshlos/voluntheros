@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_01_14_203519) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "details"
+    t.string "date"
     t.integer "volunteers_id"
     t.integer "elderly_id", null: false
     t.datetime "created_at", precision: 6, null: false
