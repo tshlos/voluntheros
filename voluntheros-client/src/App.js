@@ -33,6 +33,7 @@ function App() {
 
 
   console.log(people)
+  console.log(username)
 
   return (
     <div className="App">
@@ -61,7 +62,7 @@ function App() {
           <TaskList/>
         </Route>
         <Route path='/home'>
-          {logged === true && people.find(user => user['username'] === (username)) ? 
+          {logged === true && people.find(user => user['username'].includes('rubyred')) ? 
           <Elders/>
           :
           <Volunteer/>} 
