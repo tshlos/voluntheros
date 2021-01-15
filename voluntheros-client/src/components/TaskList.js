@@ -12,11 +12,11 @@ function TaskList() {
         setValue(val);
     }
 
-    // const selectTask = () => {
+    function selectTask() {
         const setTask = sessionStorage.setItem("value", value);
         const getTask = sessionStorage.getItem("value");
         console.log("session storage", getTask)
-    // }
+    }
     
 
 
