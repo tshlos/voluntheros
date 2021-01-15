@@ -21,6 +21,6 @@ volunteer3 = Volunteer.create(name: 'Danira', username: 'ms_danira', age: 32, ph
 volunteer4 = Volunteer.create(name: 'John', username: 'jj', age: 18, phone: '2067834520')
 
 task1 = Task.create(title: 'conversation', elderly_id: 5, volunteers_id: 5)
-task1 = Task.create(title: 'technology', elderly_id: 6, volunteers_id: 6)
-task1 = Task.create(title: 'ride', elderly_id: 7)
-task1 = Task.create(title: 'conversation', elderly_id: 7)
+task2 = Task.create(title: 'technology', elderly_id: 6, volunteers_id: 6)
+task3 = Task.create(title: 'ride', elderly_id: 7)
+task4 = Task.create(title: 'conversation', elderly_id: 7)
