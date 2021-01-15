@@ -3,8 +3,8 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 function Volunteer({tasks}) {
-
     console.log(tasks)
+  
     function displayAvailTasks() {
         const availTasks = tasks.filter(task => task.volunteers_id === null)
         return availTasks.map(task => {
