@@ -1,20 +1,33 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 
-function Login() {
+function Login({ setUsername}) {
 
-    const [username, setUsername] = useState('')
+    const logIn = { username: ''}
+    const [form, setForm] = useState(logIn)
+
+    function handleChange(e) {
+        let obj = {[e.target.name]: e.target.value}
+        setForm(prevState => ({...prevState, ...obj}))
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        setUsername(form.username)
+    }
+
     return (
 
         <div className="login">
 
             <div login-form>
-                <form onSubmit={e => setUsername({username: e.target.value})}>
+                <form onSubmit={handleSubmit}>
                     <input
-                    onChange={e => setUsername({username: e.target.value})}
-                     type="text" 
-                    value={username} 
-                    name={username}
+                    onChange={handleChange}
+                    type="text" 
+                    value={form.username} 
+                    name='username'
                     placeholder="Username"/>
                     <button>Login</button>
                 </form>
