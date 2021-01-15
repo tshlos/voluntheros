@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
-function Login({ setUsername, setLogged}) {
+function Login({ setUsername, setLogged, people, username, logged }) {
 
     const logIn = { username: ''}
     const [form, setForm] = useState(logIn)
@@ -15,12 +14,21 @@ function Login({ setUsername, setLogged}) {
         setForm(prevState => ({...prevState, ...obj}))
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        setUsername(form.username)
-        setLogged(true)
-        // return history.push('/home') add back in later
-    }
+    // useEffect(() => {
+ 
+        function handleSubmit(e) {
+            e.preventDefault();
+            setUsername(form.username)
+            setLogged(true)
+            console.log(username)
+            if(username === 'rubyred'){
+                history.push('/ehome')
+            } else {
+                history.push('/vhome')
+            }
+
+        }
+    // }, []);
 
     return (
 

@@ -33,6 +33,8 @@ function App() {
 
 
   console.log(people)
+  console.log(logged)
+  console.log(username)
 
   return (
     <div className="App">
@@ -47,8 +49,7 @@ function App() {
       <Switch>
         <Route path='/login'>
           <Login 
-          setLogged={setLogged}
-          username={username} setUsername={setUsername}/>
+          setLogged={setLogged} logged={logged} username={username} setUsername={setUsername} people={people}/>
         </Route>
         <Route path='/signup'>
           <SignUp
@@ -60,12 +61,11 @@ function App() {
         <Route path='/tasks'>
           <TaskList/>
         </Route>
-        <Route path='/home'>
-          {logged === true && people.find(user => user['username'] === (username)) ? 
+        <Route path='/ehome'>
           <Elders/>
-          :
-          <Volunteer/>} 
-          {/* needs work */}
+        </Route>
+        <Route path='vhome'>
+          <Volunteer/>
         </Route>
       </Switch>
     </Router>
