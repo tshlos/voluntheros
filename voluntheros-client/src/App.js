@@ -37,13 +37,6 @@ function App() {
   // }, []);
 
 
-
-  console.log(people)
-
-  console.log(logged)
-
-  console.log(username)
-
   return (
     <div className="App">
     <Router>
@@ -70,7 +63,7 @@ function App() {
         </Route> */}
         {logged && username === 'rubyred' ?
         <Route path='/home'>
-          <Elders username={username} task={task}/>
+          <Elders username={username} task={tasks}/>
           <TaskList />
         </Route>
           :
