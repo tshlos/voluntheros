@@ -14,12 +14,12 @@ function App() {
   const [username, setUsername] = useState({ })
   // const [people, setPeople] = useState();
   const [logged, setLogged] = useState(false)
-  const [task, setTask] = useState([])
+  const [tasks, setTasks] = useState([])
 
-  useEffect(() =>{
+  useEffect(() => {
     fetchTasks()
-    .then(task => setTask(task))
-  },[])
+    .then(json => setTasks(json))
+  }, []);
 
 
   // useEffect(() => {
@@ -35,9 +35,6 @@ function App() {
   //   })
 
   // }, []);
-
-  console.log(logged)
-  console.log(username)
 
   return (
     <div className="App">
@@ -70,7 +67,7 @@ function App() {
         </Route>
           :
         <Route path='/home'>
-          <Volunteer task={task} username={username}/>
+          <Volunteer tasks={tasks}/>
         </Route>}
       </Switch>
     </Router>
