@@ -65,13 +65,13 @@ function App() {
         {/* <Route exact path='/'>
           <HomePage/>
         </Route> */}
-        <Route path='/tasks'>
+        {/* <Route path='/tasks'>
           <TaskList/>
-        </Route>
+        </Route> */}
         {logged && username === 'rubyred' ?
         <Route path='/home'>
-          <Elders/>
-          <TaskList/>
+          <Elders username={username} task={task}/>
+          <TaskList />
         </Route>
           :
         <Route path='/home'>

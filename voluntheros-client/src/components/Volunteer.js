@@ -30,7 +30,6 @@ function Volunteer({tasks}) {
     return (
         <div>
             <h2> I like to volunteer</h2>
-
             <div className='container-fluid'>
             {displayTasks()}
             </div>
