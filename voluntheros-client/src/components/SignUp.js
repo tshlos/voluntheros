@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 
 function SignUp({setUsername}) {
@@ -27,6 +28,10 @@ function SignUp({setUsername}) {
                     placeholder="Username"/>
                     <button>Sign Up</button>
                 </form>
+                <Link to="/login"
+                className="login-link">
+                    Already have an account? Click here to Login!
+                </Link>
             </div>
         </div>
     );
