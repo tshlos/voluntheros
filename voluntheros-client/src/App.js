@@ -14,7 +14,7 @@ function App() {
   const [username, setUsername] = useState({ })
   const [people, setPeople] = useState();
   const [elderly, setElderly] = useState();
-  
+  const [logged, setLogged] = useState(false)
 
   useEffect(() => {
     fetchElderly()
@@ -30,7 +30,11 @@ function App() {
 
   }, []);
 
+
+
   console.log(people)
+  console.log(logged)
+  console.log(username)
 
   return (
     <div className="App">
@@ -44,10 +48,12 @@ function App() {
       </div>
       <Switch>
         <Route path='/login'>
-          <Login username={username} setUsername={setUsername}/>
+          <Login 
+          setLogged={setLogged} logged={logged} username={username} setUsername={setUsername} people={people}/>
         </Route>
         <Route path='/signup'>
-          <SignUp />
+          <SignUp
+           username={username} setUsername={setUsername} />
         </Route>
         {/* <Route exact path='/'>
           <HomePage/>
@@ -55,11 +61,11 @@ function App() {
         <Route path='/tasks'>
           <TaskList/>
         </Route>
-        <Route path='/home'>
-          {logged === true && people.find(user => user['username'] === 'rubyred') ? 
+        <Route path='/ehome'>
           <Elders/>
-          :
-          <Volunteer/>}
+        </Route>
+        <Route path='vhome'>
+          <Volunteer/>
         </Route>
       </Switch>
     </Router>
