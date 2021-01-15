@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom';
 
-function Login({ setUsername, setLogged, people, username, logged }) {
+function Login({ setUsername, setLogged, username }) {
 
     const logIn = { username: ''}
     const [form, setForm] = useState(logIn)
@@ -13,22 +13,15 @@ function Login({ setUsername, setLogged, people, username, logged }) {
         let obj = {[e.target.name]: e.target.value}
         setForm(prevState => ({...prevState, ...obj}))
     }
-
-    // useEffect(() => {
  
         function handleSubmit(e) {
             e.preventDefault();
             setUsername(form.username)
             setLogged(true)
             console.log(username)
-            if(username === 'rubyred'){
-                history.push('/ehome')
-            } else {
-                history.push('/vhome')
-            }
-
+            history.push('/home')
         }
-    // }, []);
+
 
     return (
 
