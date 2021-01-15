@@ -6,10 +6,11 @@ import { createTasks } from '../api';
 import { fetchTasks } from '../api';
 
 
-function TaskList() {
+function TaskList({ username, tasks }) {
+
+    console.log("tasks", tasks)
 
     const [value, setValue] = useState("");
-    
     
     const handleOnChange = val => {
         setValue(val);
@@ -19,20 +20,30 @@ function TaskList() {
         setValue("");
     }
 
-    function onSelectTask() {
-        const setTask = sessionStorage.setItem("value", value);
-        const getTask = sessionStorage.getItem("value");
-        console.log("session storage", getTask)
+    const setTask = sessionStorage.setItem("value", value);
+    const getTask = sessionStorage.getItem("value");
+    console.log("session storage", getTask)
 
-        createTasks({ task: {}})
+    function onSelectTask() {
+
+        // if (username === "rubyred") {
+        //     clearState();
+        //     alert("Your request has been saved");
+        // }
+    }
+
+    const newTask = () => {
+        createTasks({ title: getTask, elderly_id: 1, date: "Mon" })
+        // alert("task saved")
     }
     
-    // console.log("api call", createTasks());
-    
-    const chooseTasks = () => {
-        fetchTasks({ task: })
-    }
-    console.log("api fetch tasks", fetchTasks());
+    // const chooseTasks = () => {
+    //     fetchTasks({ task: }).then(
+    //         (res) => {
+    //             clearState();
+    //         }
+    //     )
+    // }
 
     const options = [
         { label: 'Groceries', value: 'Groceries' },
@@ -59,7 +70,7 @@ function TaskList() {
             />
             <button 
                 className="save-task-button"
-                onClick={onSelectTask}
+                onClick={newTask}
             > Save Your Request </button>
             
         </div>

@@ -6,15 +6,15 @@ export default function DateChooser() {
     
     const [value, onChange] = useState(new Date());
 
-    console.log("on change", onChange);
-    console.log('value', value);
+    // console.log("on change", onChange);
+    // console.log('value', value);
 
     return (
         <div>
-        <Calendar
-            onChange={onChange}
-            value={value}
-        />
+            <Calendar
+                onChange={onChange}
+                value={value}
+            />
         </div>
     );
 }
