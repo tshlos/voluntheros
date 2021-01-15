@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
-function Login({ setUsername, setLogged}) {
+function Login({ setUsername, setLogged, username }) {
 
     const logIn = { username: ''}
     const [form, setForm] = useState(logIn)
@@ -14,13 +13,15 @@ function Login({ setUsername, setLogged}) {
         let obj = {[e.target.name]: e.target.value}
         setForm(prevState => ({...prevState, ...obj}))
     }
+ 
+        function handleSubmit(e) {
+            e.preventDefault();
+            setUsername(form.username)
+            setLogged(true)
+            console.log(username)
+            history.push('/home')
+        }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        setUsername(form.username)
-        setLogged(true)
-        // return history.push('/home') add back in later
-    }
 
     return (
 
@@ -44,4 +45,4 @@ function Login({ setUsername, setLogged}) {
         </div>
     )
 }
-export default Login
+export default Login;
