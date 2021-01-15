@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 
-function Login({ setUsername}) {
+function Login({ setUsername, setLogged}) {
 
     const logIn = { username: ''}
     const [form, setForm] = useState(logIn)
@@ -14,6 +14,7 @@ function Login({ setUsername}) {
     function handleSubmit(e) {
         e.preventDefault();
         setUsername(form.username)
+        setLogged(true)
     }
 
     return (

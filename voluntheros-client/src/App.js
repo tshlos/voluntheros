@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route, useHistory, NavLink } from "rea
 import React, { useEffect, useState } from 'react';
 import TaskList from './components/TaskList';
 import Login from './components/Login'
+import Elders from './components/Elders'
+import Volunteer from './components/Volunteer'
 import HomePage from './components/HomePage'
 import SignUp from './components/SignUp';
 import { fetchElderly, fetchVolunteers } from './api';
@@ -10,20 +12,28 @@ import { fetchElderly, fetchVolunteers } from './api';
 function App() {
 
   const [username, setUsername] = useState({ })
-  const [people, setPeople] = useState([]);
+  const [people, setPeople] = useState();
+  const [elderly, setElderly] = useState();
+  const [logged, setLogged] = useState(false)
 
   useEffect(() => {
     fetchElderly()
-    .then(console.log)
-    // .then(json => setPeople(json))
+    // .then(console.log)
+    .then(json => setPeople(json))
+
+    fetchVolunteers()
+    .then(json => {
+      json.map(info => {
+        setPeople(prevPeople => ([...prevPeople, info]))
+      })
+    })
+
   }, []);
 
-  useEffect(() => {
-    fetchVolunteers()
-    .then(json => setPeople(prevPeople => ([...prevPeople, json])))
-  }, []);
+
 
   console.log(people)
+
   return (
     <div className="App">
     <Router>
@@ -36,10 +46,13 @@ function App() {
       </div>
       <Switch>
         <Route path='/login'>
-          <Login username={username} setUsername={setUsername}/>
+          <Login 
+          setLogged={setLogged}
+          username={username} setUsername={setUsername}/>
         </Route>
         <Route path='/signup'>
-          <SignUp />
+          <SignUp
+           username={username} setUsername={setUsername} />
         </Route>
         {/* <Route exact path='/'>
           <HomePage/>
@@ -48,9 +61,12 @@ function App() {
           <TaskList/>
         </Route>
         <Route path='/home'>
-          {/* { volunteer or elder ? <Elders/> : <Volunteer/>} */}
+          {logged === true && people.find(user => user['username'] === (username)) ? 
+          <Elders/>
+          :
+          <Volunteer/>} 
+          {/* needs work */}
         </Route>
-        {/* need to see how we are pulling info to do this */}
       </Switch>
     </Router>
     </div>
