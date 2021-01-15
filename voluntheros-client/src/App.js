@@ -7,13 +7,20 @@ import Elders from './components/Elders'
 import Volunteer from './components/Volunteer'
 import HomePage from './components/HomePage'
 import SignUp from './components/SignUp';
-import { fetchElderly, fetchVolunteers } from './api';
+import { fetchElderly, fetchVolunteers, fetchTasks } from './api';
 
 function App() {
 
   const [username, setUsername] = useState({ })
   // const [people, setPeople] = useState();
   const [logged, setLogged] = useState(false)
+  const [task, setTask] = useState([])
+
+  useEffect(() =>{
+    fetchTasks()
+    .then(task => setTask(task))
+  },[])
+
 
   // useEffect(() => {
   //   fetchElderly()
@@ -53,17 +60,17 @@ function App() {
         {/* <Route exact path='/'>
           <HomePage/>
         </Route> */}
-        <Route path='/tasks'>
+        {/* <Route path='/tasks'>
           <TaskList/>
-        </Route>
+        </Route> */}
         {logged && username === 'rubyred' ?
         <Route path='/home'>
-          <Elders/>
-          <TaskList/>
+          <Elders username={username} task={task}/>
+          <TaskList />
         </Route>
           :
         <Route path='/home'>
-          <Volunteer/>
+          <Volunteer task={task} username={username}/>
         </Route>}
       </Switch>
     </Router>

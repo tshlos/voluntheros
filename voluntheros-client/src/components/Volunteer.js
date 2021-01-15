@@ -1,13 +1,25 @@
+import { Card } from 'react-bootstrap';
 
-
-function Volunteer() {
+function Volunteer({ task }) {
+    // .filter(task => task.eldery_id OR task[’eldery_id] === username)
+    function displayTasks() {
+         task.map(task => {
+            console.log(task)
+            return <>
+                <Card style={{ width: '18em' }}>
+                    <Card.Header>{task.title}</Card.Header>
+                </Card>
+            </>
+        })
+    }
+    //if volunteer then gray out card : normal
+    //elderly- check to see if elderly_id matches? display : ignore
+    //id title details volunteers_id elderly_id
     return (
         <div>
-            <h2> I like to volunteer</h2>
-            {/* display volunteer task 
-            have a show more button
-            preview of task they signed up more 
-            and expand more */}
+            <h2></h2>
+            <h3>These are my task for the day:</h3>
+            {displayTasks}
         </div>
     );
 }

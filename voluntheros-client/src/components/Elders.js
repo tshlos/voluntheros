@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
+import TaskList from './TaskList';
 // import { createTasks } from './api';
 
-function Elders() {
+function Elders({task}) {
+
     return (
         <div>
-            <h2>I am old</h2>
-              {/* display volunteer task 
-            have a show more button
-            preview of task they signed up more 
-            and expand more */}
+            <h2>{}</h2>
+
+            <h2>Here are your task for the day:</h2>
         </div>
     );
 }
