@@ -59,6 +59,7 @@ function App() {
         {logged && username === 'rubyred' ?
         <Route path='/home'>
           <Elders/>
+          <TaskList/>
         </Route>
           :
         <Route path='/home'>
