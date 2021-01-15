@@ -2,23 +2,37 @@ import React, { useState } from 'react';
 import MultiSelect from  'react-multiple-select-dropdown-lite';
 import 'react-multiple-select-dropdown-lite/dist/index.css';
 import DateChooser from './DateChooser';
+import { createTasks } from '../api';
+import { fetchTasks } from '../api';
 
 
 function TaskList() {
 
     const [value, setValue] = useState("");
-
+    
+    
     const handleOnChange = val => {
         setValue(val);
     }
 
-    function selectTask() {
+    const clearState = () => {
+        setValue("");
+    }
+
+    function onSelectTask() {
         const setTask = sessionStorage.setItem("value", value);
         const getTask = sessionStorage.getItem("value");
         console.log("session storage", getTask)
+
+        createTasks({ task: {}})
     }
     
-
+    // console.log("api call", createTasks());
+    
+    const chooseTasks = () => {
+        fetchTasks({ task: })
+    }
+    console.log("api fetch tasks", fetchTasks());
 
     const options = [
         { label: 'Groceries', value: 'Groceries' },
@@ -45,7 +59,9 @@ function TaskList() {
             />
             <button 
                 className="save-task-button"
-            > Save </button>
+                onClick={onSelectTask}
+            > Save Your Request </button>
+            
         </div>
     );
 }

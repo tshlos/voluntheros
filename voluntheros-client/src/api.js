@@ -46,10 +46,10 @@ export async function fetchTasks() {
 }
 
 export async function createTasks(data) {
-const resp = await fetch(`${API}/tasks`, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(data)
-})
-return await resp.json()
+    const resp = await fetch(`${API}/tasks`, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(data)
+    })
+    return await resp.json()
 }
