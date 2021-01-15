@@ -14,6 +14,7 @@ function App() {
   const [username, setUsername] = useState({ })
   const [people, setPeople] = useState();
   const [elderly, setElderly] = useState();
+  
 
   useEffect(() => {
     fetchElderly()
@@ -55,7 +56,7 @@ function App() {
           <TaskList/>
         </Route>
         <Route path='/home'>
-          {people.find(user => user['username'] === username) ? 
+          {logged === true && people.find(user => user['username'] === 'rubyred') ? 
           <Elders/>
           :
           <Volunteer/>}
