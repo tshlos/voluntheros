@@ -14,6 +14,7 @@ function App() {
   const [username, setUsername] = useState({ })
   const [people, setPeople] = useState();
   const [elderly, setElderly] = useState();
+  const [logged, setLogged] = useState(false)
 
   useEffect(() => {
     fetchElderly()
@@ -29,6 +30,8 @@ function App() {
 
   }, []);
 
+
+
   console.log(people)
 
   return (
@@ -43,10 +46,13 @@ function App() {
       </div>
       <Switch>
         <Route path='/login'>
-          <Login username={username} setUsername={setUsername}/>
+          <Login 
+          setLogged={setLogged}
+          username={username} setUsername={setUsername}/>
         </Route>
         <Route path='/signup'>
-          <SignUp />
+          <SignUp
+           username={username} setUsername={setUsername} />
         </Route>
         {/* <Route exact path='/'>
           <HomePage/>
@@ -55,10 +61,11 @@ function App() {
           <TaskList/>
         </Route>
         <Route path='/home'>
-          {people.find(user => user['username'] === username) ? 
+          {logged === true && people.find(user => user['username'] === (username)) ? 
           <Elders/>
           :
-          <Volunteer/>}
+          <Volunteer/>} 
+          {/* needs work */}
         </Route>
       </Switch>
     </Router>
