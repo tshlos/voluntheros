@@ -13,7 +13,6 @@ import LoggingOut from './components/LoggingOut';
 function App() {
 
   const [username, setUsername] = useState({})
-  // const [people, setPeople] = useState();
   const [logged, setLogged] = useState(false)
   const [tasks, setTasks] = useState([])
   const [signup, setSignup] = useState(false)
@@ -24,23 +23,6 @@ function App() {
     fetchTasks()
       .then(json => setTasks(json))
   }, []);
-
-
-
-
-  // useEffect(() => {
-  //   fetchElderly()
-  //   // .then(console.log)
-  //   .then(json => setPeople(json))
-
-  //   fetchVolunteers()
-  //   .then(json => {
-  //     json.map(info => {
-  //       setPeople(prevPeople => ([...prevPeople, info]))
-  //     })
-  //   })
-
-  // }, []);
 
   console.log(tasks)
 
@@ -56,7 +38,7 @@ function App() {
           
           <Route path='/logout'>
             <LoggingOut
-              logged={logged} setLogged={setLogged} username={username} setUsername={setUsername} />
+              logged={logged} setLogged={setLogged}/>
           </Route>
 
           <Route path='/signup'>
@@ -64,12 +46,6 @@ function App() {
             signup={signup} setSignup={setSignup}
             username={username} setUsername={setUsername} />
           </Route>
-          {/* <Route exact path='/'>
-          <HomePage/>
-        </Route> */}
-          {/* <Route path='/tasks'>
-          <TaskList/>
-        </Route> */}
           {logged && username === 'rubyred' ?
             <Route path='/home'>
               <Elders username={username} tasks={tasks} />
@@ -86,6 +62,3 @@ function App() {
 
 }
 export default App;
-
-// diff name for tasks in nav Bar
-// containers should be in their components (which will show under profile)
