@@ -1,18 +1,24 @@
-import React from 'react';
-import { loggedOut } from '../api';
+import { useHistory } from 'react-router-dom';
 
-function LoggingOut() {
+function LoggingOut({logged, setLogged}) {
 
-    // useEffect(() => {
-    //     logged()
-    //       .then(json => setTasks(json))
-    //   }, []);
-    
-    // return (
-    //     <div>
-            
-    //     </div>
-    // );
+    const history = useHistory() 
+
+    function loggedOut(){
+        if(logged === true){
+            setLogged(false)
+            return <p>Have a good day</p>
+           
+        }
+        history.push('/login')
+    }
+
+    console.log(logged)
+    return (
+        <div>
+      {loggedOut()}
+        </div>
+    );
 }
 
 export default LoggingOut;

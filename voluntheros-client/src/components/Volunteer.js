@@ -18,6 +18,10 @@ function Volunteer({tasks}) {
                 <Button onClick={(e) => addTask(e, task.id)}>Add to My Tasks</Button> 
             </Card>
         </>
+    })
+  }
+//if volunteer then gray out card : normal
+//elderly- check to see if elderly_id matches? display : ignore
         })
     }
 
