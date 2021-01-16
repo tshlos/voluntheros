@@ -1,24 +1,31 @@
 import { NavLink } from "react-router-dom";
-import NavBar from 'react-bootstrap/Navbar'
+import "./Nav.css"
 
-export default function Nav({logged}) {
+export default function Nav({ logged }) {
+
+  
     return (
-        <NavBar fixed='top' >
-            <h1>Voluntheroes</h1>
-            {logged ? (
-                <>
-                <NavLink to="/logout" className="tabs">Logout</NavLink>
-                </>
-            ) : (
-                <>
-                <NavLink to='/' className='tabs'>Login</NavLink>
-                <NavLink to='/signUp' className='tabs'>SignUp</NavLink>
-                </>
-            )}
-        </NavBar>
+        <div className="navbar">
+            <div>
+                <div className="logo-container">
+                    <h1 className="logo" >Voluntheroes</h1>
+                </div>
+                <div className="nav-links"></div>
+                {logged ? (
+                    <>
+                        <NavLink to='/home' className='tabs'>Home</NavLink>
+                        <NavLink to="/logout" className="tabs">Logout</NavLink>
+                    </>
+                ) : (
+                    <>
+                        <NavLink to='/login' className='tabs'>Login</NavLink>
+                        <NavLink to='/signUp' className='tabs'>SignUp</NavLink>
+                    </>
+                )}
+            </div>
+        </div>
     )
 }
-
 {/* <div id='nav'>
 <NavLink to='/' exact>Voluntheroes</NavLink>
 <NavLink to='/login' className='tabs'>Login</NavLink>

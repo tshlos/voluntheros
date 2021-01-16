@@ -3,7 +3,6 @@ html, body{
   
 }
 
-
 .signup-link, .login-link{
   color: black;
   padding-top: 10px;
@@ -50,9 +49,3 @@ form {
 .task-list-container{
  background-color: teal;
 }
-
-a.tabs, .navbar{
-  color: black;
-  justify-self: right;
-}
-
