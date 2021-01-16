@@ -20,6 +20,7 @@ function SignUp({setUsername}) {
         <div className="signup">
             <div className="signup-form">
                 <form onSubmit={handleSubmit}>
+                <h1>Please Sign Up</h1>
                     <input 
                     onChange={handleChange} 
                     type="text"
