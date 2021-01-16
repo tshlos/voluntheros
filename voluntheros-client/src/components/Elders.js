@@ -5,7 +5,6 @@ import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
 
-
 function Elders({ tasks }) {
     // username
     const tapioca = 'rubyred'

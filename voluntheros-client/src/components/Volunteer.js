@@ -81,7 +81,7 @@ function Volunteer({tasks}) {
 //id title details volunteers_id elderly_id
 
 function addTask(e, key) {
-    console.log(e)
+    // console.log(e)
     // debugger
     // e.target.parentElement.remove
 
