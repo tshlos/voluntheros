@@ -46,8 +46,26 @@ export async function fetchTasks() {
 }
 
 export async function createTasks(data) {
-    const resp = await fetch(`${API}/tasks`, {
-        method: 'POST',
+const resp = await fetch(`${API}/tasks`, {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(data)
+})
+return await resp.json()
+}
+
+export async function updateTasks(data) {
+const resp = await fetch(`${API}/tasks/${data.id}`, {
+    method: 'PATCH',
+    headers: headers,
+    body: JSON.stringify(data)
+})
+return await resp.json()
+}
+
+export async function loggedOut(data){
+    const resp = await fetch(`${API}/tasks${data.id}`,{
+        method: 'DELETE',
         headers: headers,
         body: JSON.stringify(data)
     })
