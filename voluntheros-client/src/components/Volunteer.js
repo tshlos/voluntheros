@@ -48,7 +48,7 @@ function Volunteer({tasks}) {
                 {/* {task.date} */}
             </Card.Text>
             <Button>Cancel</Button> 
-            {/* <Button onClick={removeTask(task.id)}>Cancel</Button>  */}
+            {/* <Button onClick={addTask(task.id)}>Cancel</Button>  */}
             </Card>
             </>
         })
@@ -72,6 +72,7 @@ function Volunteer({tasks}) {
         })
         .then(resp => resp.json())
         .then(console.log)
+  
     }
 
     return (
