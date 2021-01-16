@@ -1,16 +1,16 @@
-import React from 'react';
-import { loggedOut } from '../api';
 
-function LoggingOut() {
+function LoggingOut({logged, setLogged}) {
 
-    useEffect(() => {
-        logged()
-          .then(json => setTasks(json))
-      }, []);
-    
+    function loggedOut(){
+        if(logged === true){
+            setLogged(false)
+            return <p>Have a good day</p>
+        }
+    }
+
     return (
         <div>
-            
+      {loggedOut()}
         </div>
     );
 }
