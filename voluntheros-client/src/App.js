@@ -31,7 +31,7 @@ function App() {
       <Router>
         <Nav logged={logged}/>
         <Switch>
-          <Route path='/login'>
+          <Route exact path='/'>
             <Login
               setLogged={setLogged} logged={logged} username={username} setUsername={setUsername} />
           </Route>

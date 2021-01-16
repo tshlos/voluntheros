@@ -8,7 +8,7 @@ function LoggingOut({logged, setLogged}) {
         if(logged === true){
             setLogged(false)
         }
-        history.push('/login')
+        history.push('/')
     }
 
     console.log(logged)
