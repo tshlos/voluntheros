@@ -9,11 +9,10 @@ import { Button } from 'react-bootstrap';
 function Elders({ tasks }) {
     // username
     const tapioca = 'rubyred'
-    console.log(tasks, 'task?')
+    // console.log(tasks, 'task?')
 
     function displayTasks() {
         const myTask = tasks.filter(task => task.elderly_id === 1)
-        console.log(myTask)
         return myTask.map(task => {
             return <>
                 <Card className='grid' key={task.id} style={{ width: '18rem' }}>
@@ -36,7 +35,7 @@ function Elders({ tasks }) {
     function displayTakenTask() {
         const takenTask = tasks.filter(task => task.elderly_id !== null)
         return takenTask.map(task => {
-            console.log(task)
+            // console.log(task)
             return <>
                 <Card className='grid' key={task.id} style={{ width: '18rem' }}>
                     <Card.Header>{task.title}</Card.Header>
