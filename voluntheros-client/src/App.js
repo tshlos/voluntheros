@@ -16,7 +16,7 @@ function App() {
   // const [people, setPeople] = useState();
   const [logged, setLogged] = useState(false)
   const [tasks, setTasks] = useState([])
-  
+  const [signup, setSignup] = useState(false)
 
   // console.log("tasks", tasks);
 
@@ -61,7 +61,8 @@ function App() {
 
           <Route path='/signup'>
             <SignUp
-              username={username} setUsername={setUsername} />
+            signup={signup} setSignup={setSignup}
+            username={username} setUsername={setUsername} />
           </Route>
           {/* <Route exact path='/'>
           <HomePage/>
