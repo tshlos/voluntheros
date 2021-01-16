@@ -6,15 +6,14 @@ import { Button } from 'react-bootstrap';
 
 
 
-function Elders({ task }) {
+function Elders({ tasks }) {
     // username
     const tapioca = 'rubyred'
+    // console.log(tasks, 'task?')
 
-    console.log(task, 'task?')
     function displayTasks() {
-        const mayTask = task.filter(task => task.elderly_id === 1)
-        console.log(mayTask)
-        return mayTask.map(task => {
+        const myTask = tasks.filter(task => task.elderly_id === 1)
+        return myTask.map(task => {
             return <>
                 <Card className='grid' key={task.id} style={{ width: '18rem' }}>
                     <Card.Header>{task.title}</Card.Header>
@@ -22,21 +21,46 @@ function Elders({ task }) {
                         Details: {task.details === null ? 'None' : task.details}
                         {/* {task.date} */}
                     </Card.Text>
-                    {task.elderly_id === null ?
+                    {/* {tasks.elderly_id === null ?
                         <Button>Add to My Tasks</Button>
                         :
                         <Button disabled>No Longer Available</Button>
-                    }
+                    } */}
                 </Card>
             </>
 
         })
     }
+
+    function displayTakenTask() {
+        const takenTask = tasks.filter(task => task.elderly_id !== null)
+        return takenTask.map(task => {
+            // console.log(task)
+            return <>
+                <Card className='grid' key={task.id} style={{ width: '18rem' }}>
+                    <Card.Header>{task.title}</Card.Header>
+                    <Card.Text>
+                        Details: {task.details === null ? 'None' : task.details}
+                        {/* {task.date} */}
+                    </Card.Text>
+                </Card>
+            </>
+        })
+    }
+
     return (
-        <div className="elder-task">
-            <h2></h2>
-            <h3>Task I need done:</h3>
+        <div className='container-fluid auto30'>
+            <div className='container'>
+            <h3>Task that are taken:</h3>
             {displayTasks()}
+            </div>
+
+            <div className='container-fluid auto30'>
+                <div className='container'>
+                <h3>Task that are taken:</h3>
+                {displayTakenTask()}
+                </div>
+            </div>
         </div>
     );
 }

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 
-function SignUp({setUsername}) {
+function SignUp({setUsername, signup, setSignup, username}) {
 
     const signUp = {username: ''}
     const [form, setForm] = useState(signUp)
+    const history = useHistory()
 
     function handleChange(e){
         let obj = {[e.target.name]: e.target.value}
@@ -15,11 +16,16 @@ function SignUp({setUsername}) {
     function handleSubmit(e){
         e.preventDefault()
         setUsername(form.username)
+        setSignup(true)
+        console.log(username)
+        console.log(signup)
+        history.push('/home')
     }
     return (
         <div className="signup">
             <div className="signup-form">
                 <form onSubmit={handleSubmit}>
+                <h1>Please Sign Up</h1>
                     <input 
                     onChange={handleChange} 
                     type="text"
