@@ -39,27 +39,33 @@ function TaskList({ username, tasks }) {
     }
 
     return (
-        <div className="task-list-container">
-            <Calendar
-                onChange={onChange}
-                value={dateValue}
-            />
-            {/* <div className="preview-values">
-                <h4>Select a Task</h4>
-                {value}
-            </div> */}
+        <div className="task-list-page">
+            <div className="task-list-container">
+                <Calendar
+                    className="task-list"
+                    onChange={onChange}
+                    value={dateValue}
+                />
+                {/* <div className="preview-values">
+                    <h4>Select a Task</h4>
+                    {value}
+                </div> */}
 
-            <MultiSelect
-                onChange={handleOnChange}
-                options={options}
-            />
-            <button 
-                className="save-task-button"
-                onClick={handleTaskSubmit}
-            > Save Your Request
-            </button>
-            {message && (<h4>Your request for Task: {message.title} on <br></br> 
-            {message.date.toString().slice(0, 10)} has been saved! </h4>)}
+                <MultiSelect
+                    onChange={handleOnChange}
+                    options={options}
+                />
+                <button 
+                    className="save-task-button btn btn-info"
+                    onClick={handleTaskSubmit}
+                    >
+                        Save
+                </button>
+
+                {message && (<h4 className="message">Your request for Task: {message.title} on <br></br> 
+                {message.date.toString().slice(0, 10)} has been saved! </h4>)}
+            </div>
+           
      
         </div>
     );

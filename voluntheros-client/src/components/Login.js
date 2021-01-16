@@ -37,7 +37,7 @@ function Login({ setUsername, setLogged, logged, username }) {
         <div className="login">
             <div className="login-form">
                 <form onSubmit={handleSubmit}>
-                    <h1>Please Log in</h1>
+                    <h3 className="text">Please Log in</h3>
                     <input
                     onChange={handleChange}
                     type="text" 
@@ -47,7 +47,7 @@ function Login({ setUsername, setLogged, logged, username }) {
                     <button>Login</button>
                 </form>
                 <Link to="/signup" className="signup-link">
-            New here? Click here to create an account!
+                <small className="txt-small">New here? Click here to create an account!</small>
           </Link>
             </div>
         </div>

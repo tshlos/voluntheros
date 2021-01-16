@@ -6,11 +6,10 @@ export default function Nav({ logged }) {
   
     return (
         <div className="navbar">
-            <div>
-                <div className="logo-container">
-                    <h1 className="logo" >Voluntheroes</h1>
-                </div>
-                <div className="nav-links"></div>
+            <div className="logo-container">
+                <h1 className="logo" >Voluntheroes</h1>
+            </div>
+            <div className="nav-links">
                 {logged ? (
                     <>
                         <NavLink to='/home' className='tabs'>Home</NavLink>
@@ -18,7 +17,7 @@ export default function Nav({ logged }) {
                     </>
                 ) : (
                     <>
-                        <NavLink to='/login' className='tabs'>Login</NavLink>
+                        <NavLink to='/' className='tabs'>Login</NavLink>
                         <NavLink to='/signUp' className='tabs'>SignUp</NavLink>
                     </>
                 )}

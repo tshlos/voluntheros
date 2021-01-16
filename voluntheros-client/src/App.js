@@ -48,8 +48,8 @@ function App() {
           </Route>
           {logged && username === 'rubyred' ?
             <Route path='/home'>
-              <Elders username={username} tasks={tasks} />
               <TaskList />
+              <Elders username={username} tasks={tasks} />
             </Route>
             :
             <Route path='/home'>

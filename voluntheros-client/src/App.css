@@ -46,6 +46,36 @@ form {
   margin-bottom: 4.5rem !important;
 }
 
-.task-list-container{
- background-color: teal;
+.task-list-container { 
+  margin: auto;
+  width: 400px;
+  padding-bottom: 2em;
+
+}
+
+.task-list-page {
+  padding-top: 1em;
+  background-color: teal;
+  margin-bottom: 0;
+
+}
+.task-list {  
+  margin-bottom: 1em;
+
+}
+.save-task-button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.text {
+  text-align: center;
+  display:block;
+}
+.txt-small {
+  font-size: .6em;
+}
+.volunteers {
+  padding-top: 2em;
+  background-color: teal;
 }

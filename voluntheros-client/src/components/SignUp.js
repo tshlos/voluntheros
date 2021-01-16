@@ -25,7 +25,7 @@ function SignUp({setUsername, signup, setSignup, username}) {
         <div className="signup">
             <div className="signup-form">
                 <form onSubmit={handleSubmit}>
-                <h1>Please Sign Up</h1>
+                <h3 className="text">Please Sign Up</h3>
                     <input 
                     onChange={handleChange} 
                     type="text"

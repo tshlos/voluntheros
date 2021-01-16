@@ -68,11 +68,10 @@ function Volunteer({tasks, props}) {
     }
 
     useEffect(()=>{
-        alert('reload!')
     },[])
 
     return (
-        <div>
+        <div className="volunteers">
             <div className='container-fluid auto30'>
             <div className='container'>
                 <h2> Available Tasks</h2>
