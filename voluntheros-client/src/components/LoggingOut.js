@@ -7,7 +7,6 @@ function LoggingOut({logged, setLogged}) {
             return <p>Have a good day</p>
         }
     }
-
     return (
         <div>
       {loggedOut()}

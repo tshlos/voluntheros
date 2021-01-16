@@ -5,7 +5,7 @@ import TaskList from './components/TaskList';
 import Login from './components/Login'
 import Elders from './components/Elders'
 import Volunteer from './components/Volunteer'
-import HomePage from './components/HomePage'
+import Nav from './components/Nav'
 import SignUp from './components/SignUp';
 import { fetchElderly, fetchVolunteers, fetchTasks } from './api';
 import LoggingOut from './components/LoggingOut';
@@ -45,17 +45,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div id='nav'>
-          <NavLink to='/' exact>Voluntheroes</NavLink>
-          <NavLink to='/login' className='tabs'>Login</NavLink>
-          <NavLink to='/signUp' className='tabs'>SignUp</NavLink>
-          <NavLink to='/home' className='tabs'>Home</NavLink>
-          <NavLink to="/logout" className="tabs">Logout</NavLink>
-        </div>
+        <Nav logged={logged}/>
         <Switch>
           <Route path='/login'>
             <Login
-              setLogged={setLogged} username={username} setUsername={setUsername} />
+              setLogged={setLogged} logged={logged} username={username} setUsername={setUsername} />
           </Route>
           
           <Route path='/logout'>
@@ -75,7 +69,6 @@ function App() {
         </Route> */}
           {logged && username === 'rubyred' ?
             <Route path='/home'>
-
               <Elders username={username} tasks={tasks} />
               <TaskList />
             </Route>

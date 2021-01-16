@@ -42,3 +42,9 @@ form {
 .task-tasklist-container{
   float: left;
 }
+
+a.tabs {
+  color: black;
+  justify-self: right;
+}
+/* need to move to the right */
