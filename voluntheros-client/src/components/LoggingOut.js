@@ -3,16 +3,16 @@ import { loggedOut } from '../api';
 
 function LoggingOut() {
 
-    useEffect(() => {
-        logged()
-          .then(json => setTasks(json))
-      }, []);
+    // useEffect(() => {
+    //     logged()
+    //       .then(json => setTasks(json))
+    //   }, []);
     
-    return (
-        <div>
+    // return (
+    //     <div>
             
-        </div>
-    );
+    //     </div>
+    // );
 }
 
 export default LoggingOut;

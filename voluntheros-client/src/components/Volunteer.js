@@ -5,8 +5,8 @@ import { updateTasks} from '../api'
 
 function Volunteer({tasks}) {
 
-    const [availAmount, setAvailAmount] = useState(0)
-    const [myAmount, setMyAmount] = useState(0)
+    // const [availAmount, setAvailAmount] = useState(0)
+    // const [myAmount, setMyAmount] = useState(0)
     // const[refresh, setRefresh] = useState(false)
     // const prevTask = useRef(refresh)
 
@@ -29,7 +29,7 @@ function Volunteer({tasks}) {
 
     function displayAvailTasks() {
         const availTasks = tasks.filter(task => task.volunteers_id === null)
-        setAvailAmount(availTasks.length)
+        // setAvailAmount(availTasks.length)
         return availTasks.map(task => {
         return <>
             <Card className='grid' key={task.id} style={{ width: '18rem' }}>
@@ -63,7 +63,7 @@ function Volunteer({tasks}) {
 
     function displayMyTasks() {
         const myTasks = tasks.filter(task => task.volunteers_id === 4)
-        setMyAmount(myTasks.length)
+        // setMyAmount(myTasks.length)
         return myTasks.map(task => {
             return <>
             <Card className='grid' key={task.id} style={{ width: '18rem' }}>
@@ -87,7 +87,7 @@ function addTask(e, key) {
 
     updateTasks({id: key, volunteers_id: 4})
     .then(console.log)
-    setRefresh(true)
+    // setRefresh(true)
 }
 
 
