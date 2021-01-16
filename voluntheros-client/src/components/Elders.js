@@ -51,13 +51,13 @@ function Elders({ tasks }) {
     return (
         <div className='container-fluid auto30'>
             <div className='container'>
-            <h3>Needs not yet met:</h3>
+            <h3 className="task-msg">Needs not yet met:</h3>
             {displayTasks()}
             </div>
 
             <div className='container-fluid auto30'>
                 <div className='container'>
-                <h3>Matched with a volunteer:</h3>
+                <h3 className="task-msg">Matched with a volunteer:</h3>
                 {displayTakenTask()}
                 </div>
             </div>

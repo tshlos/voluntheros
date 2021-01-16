@@ -37,6 +37,14 @@ form {
   background-color: teal;
 }
 
+.container {
+  padding-top: 60px;
+}
+
+.task-msg {
+  padding-bottom: 10px;
+}
+
 .auto30{
   grid-template-columns: repeat(auto-fit, 25rem);
 }
