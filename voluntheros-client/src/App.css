@@ -1,11 +1,17 @@
 html, body{
-  background-color: bisque;
-  padding: 30px;
-  border-radius: 20px;
+  background-color: teal;
+  
+}
+
+
+
+.signup-link, .login-link{
+  color: black;
 }
 
 
 .login-form, .signup-form {
+  background-color: teal;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,10 +22,10 @@ html, body{
 }
 
 form {
-  background-color: bisque;
+  background-color: white;
   padding: 10px 20px 30px 20px;
   border-radius: 10px;
-}
+} 
 
 .container-fluid {
   display: grid;
