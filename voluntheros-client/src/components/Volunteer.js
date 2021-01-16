@@ -65,6 +65,7 @@ function Volunteer({tasks, props}) {
 
     function removeTask(key) {
         updateTasks({id: key, volunteers_id: null})
+        reload()
     }
 
     useEffect(()=>{
