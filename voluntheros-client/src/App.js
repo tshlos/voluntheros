@@ -49,7 +49,7 @@ function App() {
         <Switch>
           <Route path='/login'>
             <Login
-              setLogged={setLogged} username={username} setUsername={setUsername} />
+              setLogged={setLogged} logged={logged} username={username} setUsername={setUsername} />
           </Route>
           
           <Route path='/logout'>
@@ -69,7 +69,6 @@ function App() {
         </Route> */}
           {logged && username === 'rubyred' ?
             <Route path='/home'>
-
               <Elders username={username} tasks={tasks} />
               <TaskList />
             </Route>
