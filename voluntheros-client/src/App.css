@@ -50,7 +50,10 @@ form {
   margin: auto;
   width: 400px;
   padding-bottom: 2em;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .task-list-page {
