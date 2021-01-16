@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-// import { updateTasks} from '../api'
+import Modal from 'react-bootstrap/Modal';
 
-function Volunteer({tasks}) {
+import { updateTasks} from '../api'
+
+function Volunteer({tasks, props}) {
+
+    const reload=()=>window.location.reload();
 
     function displayAvailTasks() {
         const availTasks = tasks.filter(task => task.volunteers_id === null)
@@ -47,33 +51,25 @@ function Volunteer({tasks}) {
                 Details: {task.details === null ? 'None' : task.details}
                 {/* {task.date} */}
             </Card.Text>
-            <Button>Cancel</Button> 
-            {/* <Button onClick={addTask(task.id)}>Cancel</Button>  */}
+            {/* <Button>Cancel</Button>  */}
+            <Button onClick={removeTask(task.id)}>Cancel</Button> 
             </Card>
             </>
         })
     }
 
-    // function addTask(key) {
-    //     updateTasks({id: key, volunteers_id: 4})
-    // }
-
-    // function removeTask(key) {
-    //     updateTasks({id: key, volunteers_id: null})
-    // }
-
-    function addTask(data) {
-        fetch(`http://localhost:3000/tasks/${data}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json'},
-            body: JSON.stringify({volunteers_id: 4})
-        })
-        .then(resp => resp.json())
-        .then(console.log)
-  
+    function addTask(key) {
+        updateTasks({id: key, volunteers_id: 4})
+        reload()
     }
+
+    function removeTask(key) {
+        updateTasks({id: key, volunteers_id: null})
+    }
+
+    useEffect(()=>{
+        alert('reload!')
+    },[])
 
     return (
         <div>
@@ -96,3 +92,15 @@ function Volunteer({tasks}) {
 }
 
 export default Volunteer;
+
+    
+
+
+            {/*<Modal {...props} aria-labelledby="contained-modal-title-vcenter" centered display={display} onHide={handleDisplayClose()}>
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">Task Removed</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Hopefully we can reschedule.</p>
+                </Modal.Body>
+            </Modal> */}

@@ -54,12 +54,12 @@ const resp = await fetch(`${API}/tasks`, {
 return await resp.json()
 }
 
-// export async function updateTasks(data) {
-// const resp = await fetch(`${API}/tasks/${data.id}`, {
-//     method: 'PATCH',
-//     headers: headers,
-//     body: JSON.stringify(data)
-// })
-// return await resp.json()
-// }
+export async function updateTasks(data) {
+const resp = await fetch(`${API}/tasks/${data.id}`, {
+    method: 'PATCH',
+    headers: headers,
+    body: JSON.stringify(data)
+})
+return await resp.json()
+}
 
