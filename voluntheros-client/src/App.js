@@ -18,6 +18,8 @@ function App() {
   const [tasks, setTasks] = useState([])
   
 
+  // console.log("tasks", tasks);
+
   useEffect(() => {
     fetchTasks()
       .then(json => setTasks(json))
