@@ -28,7 +28,7 @@ class TasksController < ApplicationController
 
     private
     def task_params
-        params.require(task).permit(:title, :details, :elderly_id, :volunteers_id)
+        params.require(:task).permit(:title, :details, :elderly_id, :volunteers_id, :date)
         # in table says volunteers_id remember when fetching as isn't singular
         # pretty sure that volunteers_id isn't necessary but left in for now
     end
