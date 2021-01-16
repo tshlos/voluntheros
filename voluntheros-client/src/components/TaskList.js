@@ -1,49 +1,25 @@
 import React, { useState } from 'react';
 import MultiSelect from  'react-multiple-select-dropdown-lite';
 import 'react-multiple-select-dropdown-lite/dist/index.css';
-import DateChooser from './DateChooser';
 import { createTasks } from '../api';
-import { fetchTasks } from '../api';
-
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 function TaskList({ username, tasks }) {
 
-    console.log("tasks", tasks)
-
-    const [value, setValue] = useState("");
+    const [dateValue, onChange] = useState(new Date());
+    // console.log("date", dateValue)
+    const [taskValue, setTaskValue] = useState("");
+    const [message, setMessage] = useState("");
+    // console.log("message", message)
     
     const handleOnChange = val => {
-        setValue(val);
-    }
-
-    const clearState = () => {
-        setValue("");
-    }
-
-    const setTask = sessionStorage.setItem("value", value);
-    const getTask = sessionStorage.getItem("value");
-    console.log("session storage", getTask)
-
-    function onSelectTask() {
-
-        // if (username === "rubyred") {
-        //     clearState();
-        //     alert("Your request has been saved");
-        // }
-    }
-
-    const newTask = () => {
-        createTasks({ title: getTask, elderly_id: 1, date: "Mon" })
-        // alert("task saved")
+        setTaskValue(val);
     }
     
-    // const chooseTasks = () => {
-    //     fetchTasks({ task: }).then(
-    //         (res) => {
-    //             clearState();
-    //         }
-    //     )
-    // }
+    const clearState = () => {
+        setTaskValue("");
+    }
 
     const options = [
         { label: 'Groceries', value: 'Groceries' },
@@ -55,14 +31,23 @@ function TaskList({ username, tasks }) {
         { label: 'Walks', value: 'Walks' },
         { label: 'Other', value: 'Other' },
     ]
+    
+    function handleTaskSubmit(e) {
+        const task = { title: taskValue, elderly_id: 1, date: dateValue };
+        createTasks(task);
+        setMessage(task);
+    }
 
     return (
         <div className="task-list-container">
-            <DateChooser />
-            <div className="preview-values">
+            <Calendar
+                onChange={onChange}
+                value={dateValue}
+            />
+            {/* <div className="preview-values">
                 <h4>Select a Task</h4>
                 {value}
-            </div>
+            </div> */}
 
             <MultiSelect
                 onChange={handleOnChange}
@@ -70,9 +55,12 @@ function TaskList({ username, tasks }) {
             />
             <button 
                 className="save-task-button"
-                onClick={newTask}
-            > Save Your Request </button>
-            
+                onClick={handleTaskSubmit}
+            > Save Your Request
+            </button>
+            {message && (<h4>Your request for Task: {message.title} on <br></br> 
+            {message.date.toString().slice(0, 10)} has been saved! </h4>)}
+     
         </div>
     );
 }

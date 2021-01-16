@@ -21,7 +21,6 @@ function App() {
   useEffect(() => {
     fetchTasks()
     .then(json => setTasks(json))
-    // .then(console.log)
   }, []);
 
 
