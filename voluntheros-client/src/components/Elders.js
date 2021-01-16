@@ -51,13 +51,13 @@ function Elders({ tasks }) {
     return (
         <div className='container-fluid auto30'>
             <div className='container'>
-            <h3>Task that are taken:</h3>
+            <h3 className="task-msg">Task that are taken:</h3>
             {displayTasks()}
             </div>
 
             <div className='container-fluid auto30'>
                 <div className='container'>
-                <h3>Task that are taken:</h3>
+                <h3 className="task-msg">Task that are taken:</h3>
                 {displayTakenTask()}
                 </div>
             </div>
