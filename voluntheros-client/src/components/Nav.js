@@ -7,12 +7,11 @@ export default function Nav({logged}) {
             <h1>Voluntheroes</h1>
             {logged ? (
                 <>
-                <NavLink to='/home' className='tabs'>Home</NavLink>
                 <NavLink to="/logout" className="tabs">Logout</NavLink>
                 </>
             ) : (
                 <>
-                <NavLink to='/login' className='tabs'>Login</NavLink>
+                <NavLink to='/' className='tabs'>Login</NavLink>
                 <NavLink to='/signUp' className='tabs'>SignUp</NavLink>
                 </>
             )}

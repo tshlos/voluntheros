@@ -19,7 +19,7 @@ function SignUp({setUsername, signup, setSignup, username}) {
         setSignup(true)
         console.log(username)
         console.log(signup)
-        history.push('/login')
+        history.push('/')
     }
     return (
         <div className="signup">

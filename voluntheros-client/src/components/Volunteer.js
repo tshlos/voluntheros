@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
 import { updateTasks} from '../api'
 
-function Volunteer({tasks}) {
+function Volunteer({tasks, props}) {
+
+    const reload=()=>window.location.reload();
 
     function displayAvailTasks() {
         const availTasks = tasks.filter(task => task.volunteers_id === null)
@@ -25,7 +29,7 @@ function Volunteer({tasks}) {
         const takenTasks = tasks.filter(task => task.volunteers_id !== null)
         return takenTasks.map(task => {
             return <>
-            <Card className='grid' key={task.id} style={{ width: '18rem' }}>
+            <Card className='grid' key={`taken${task.id}`} style={{ width: '18rem' }}>
             <Card.Header>{task.title}</Card.Header>
             <Card.Text>
                 Details: {task.details === null ? 'None' : task.details}
@@ -41,13 +45,14 @@ function Volunteer({tasks}) {
         const myTasks = tasks.filter(task => task.volunteers_id === 4)
         return myTasks.map(task => {
             return <>
-            <Card className='grid' key={task.id} style={{ width: '18rem' }}>
+            <Card className='grid' key={`my${task.id}`} style={{ width: '18rem' }}>
             <Card.Header>{task.title}</Card.Header>
             <Card.Text>
                 Details: {task.details === null ? 'None' : task.details}
                 {/* {task.date} */}
             </Card.Text>
-            <Button>Cancel</Button> 
+            {/* <Button>Cancel</Button>  */}
+            <Button onClick={removeTask(task.id)}>Cancel</Button> 
             </Card>
             </>
         })
@@ -55,7 +60,16 @@ function Volunteer({tasks}) {
 
     function addTask(key) {
         updateTasks({id: key, volunteers_id: 4})
+        reload()
     }
+
+    function removeTask(key) {
+        updateTasks({id: key, volunteers_id: null})
+    }
+
+    useEffect(()=>{
+        alert('reload!')
+    },[])
 
     return (
         <div>
@@ -78,3 +92,15 @@ function Volunteer({tasks}) {
 }
 
 export default Volunteer;
+
+    
+
+
+            {/*<Modal {...props} aria-labelledby="contained-modal-title-vcenter" centered display={display} onHide={handleDisplayClose()}>
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">Task Removed</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Hopefully we can reschedule.</p>
+                </Modal.Body>
+            </Modal> */}
