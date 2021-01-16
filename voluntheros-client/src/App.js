@@ -8,18 +8,22 @@ import Volunteer from './components/Volunteer'
 import HomePage from './components/HomePage'
 import SignUp from './components/SignUp';
 import { fetchElderly, fetchVolunteers, fetchTasks } from './api';
+import LoggingOut from './components/LoggingOut';
 
 function App() {
 
-  const [username, setUsername] = useState({ })
+  const [username, setUsername] = useState({})
   // const [people, setPeople] = useState();
   const [logged, setLogged] = useState(false)
   const [tasks, setTasks] = useState([])
+  const [loggedOut, setLoggedOut] = useState(false)
 
   useEffect(() => {
     fetchTasks()
-    .then(json => setTasks(json))
+      .then(json => setTasks(json))
   }, []);
+
+
 
 
   // useEffect(() => {
@@ -36,44 +40,51 @@ function App() {
 
   // }, []);
 
-
+  console.log(tasks)
 
   return (
     <div className="App">
-    <Router>
-      <div id='nav'>
-        <NavLink to='/' exact>Volunthero</NavLink>
-        <NavLink to='/login' className='tabs'>Login</NavLink>
-        <NavLink to='/signUp' className='tabs'>SignUp</NavLink>
-        <NavLink to='/home' className='tabs'>Home</NavLink>
-      </div>
-      <Switch>
-        <Route path='/login'>
-          <Login 
-          setLogged={setLogged} username={username} setUsername={setUsername}/>
-        </Route>
-        <Route path='/signup'>
-          <SignUp
-           username={username} setUsername={setUsername} />
-        </Route>
-        {/* <Route exact path='/'>
+      <Router>
+        <div id='nav'>
+          <NavLink to='/' exact>Voluntheroes</NavLink>
+          <NavLink to='/login' className='tabs'>Login</NavLink>
+          <NavLink to='/signUp' className='tabs'>SignUp</NavLink>
+          <NavLink to='/home' className='tabs'>Home</NavLink>
+          <NavLink to="/logout" className="tabs">Logout</NavLink>
+        </div>
+        <Switch>
+          <Route path='/login'>
+            <Login
+              setLogged={setLogged} username={username} setUsername={setUsername} />
+          </Route>
+          
+          <Route path='/logout'>
+            <LoggingOut
+              setLogged={setLoggedOut} username={username} setUsername={setUsername} />
+          </Route>
+
+          <Route path='/signup'>
+            <SignUp
+              username={username} setUsername={setUsername} />
+          </Route>
+          {/* <Route exact path='/'>
           <HomePage/>
         </Route> */}
-        {/* <Route path='/tasks'>
+          {/* <Route path='/tasks'>
           <TaskList/>
         </Route> */}
-        {logged && username === 'rubyred' ?
-        <Route path='/home'>
+          {logged && username === 'rubyred' ?
+            <Route path='/home'>
 
-          <Elders username={username} tasks={tasks}/>
-          <TaskList />
-        </Route>
-          :
-        <Route path='/home'>
-          <Volunteer tasks={tasks}/>
-        </Route>}
-      </Switch>
-    </Router>
+              <Elders username={username} tasks={tasks} />
+              <TaskList />
+            </Route>
+            :
+            <Route path='/home'>
+              <Volunteer tasks={tasks} />
+            </Route>}
+        </Switch>
+      </Router>
     </div>
   );
 

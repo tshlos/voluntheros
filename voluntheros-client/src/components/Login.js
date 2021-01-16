@@ -26,7 +26,6 @@ function Login({ setUsername, setLogged, username }) {
     return (
 
         <div className="login">
-
             <div className="login-form">
                 <form onSubmit={handleSubmit}>
                     <h1>Please Log in</h1>
