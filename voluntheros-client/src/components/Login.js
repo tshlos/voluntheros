@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom';
 
-function Login({ setUsername, setLogged, username }) {
+function Login({ setUsername, setLogged, logged, username }) {
 
     const logIn = { username: ''}
     const [form, setForm] = useState(logIn)
@@ -14,14 +14,22 @@ function Login({ setUsername, setLogged, username }) {
         setForm(prevState => ({...prevState, ...obj}))
     }
  
-        function handleSubmit(e) {
-            e.preventDefault();
-            setUsername(form.username)
-            setLogged(true)
-            console.log(username)
-            history.push('/home')
-        }
+    function handleSubmit(e) {
+        e.preventDefault();
+        setUsername(form.username)
+        setLogged(true)
+        console.log(username)
+        console.log(logged)
+        // sessionStorage.setItem('username', username)
+        // sessionStorage.setItem('loggedin', logged)
+        history.push('/home')
+    }
 
+    // function selectTask() {
+    //     const setTask = sessionStorage.setItem("value", value);
+    //     const getTask = sessionStorage.getItem("value");
+    //     console.log("session storage", getTask)
+    // }
 
     return (
 
