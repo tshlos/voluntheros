@@ -12,7 +12,7 @@ export default function Nav({ logged }) {
             <div className="nav-links">
                 {logged ? (
                     <>
-                        <NavLink to='/home' className='tabs'>Home</NavLink>
+                        {/* <NavLink to='/home' className='tabs'>Home</NavLink> */}
                         <NavLink to="/logout" className="tabs">Logout</NavLink>
                     </>
                 ) : (
