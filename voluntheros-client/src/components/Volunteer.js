@@ -45,8 +45,7 @@ function Volunteer({tasks}) {
   }
 //if volunteer then gray out card : normal
 //elderly- check to see if elderly_id matches? display : ignore
-        })
-    }
+  
 
     function displayTakenTasks() {
         const takenTasks = tasks.filter(task => task.volunteers_id !== null)

@@ -17,15 +17,10 @@ function App() {
   const [logged, setLogged] = useState(false)
   const [tasks, setTasks] = useState([])
   
-
-  // console.log("tasks", tasks);
-
   useEffect(() => {
     fetchTasks()
       .then(json => setTasks(json))
   }, []);
-
-
 
 
   // useEffect(() => {
