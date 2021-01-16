@@ -46,15 +46,16 @@ function App() {
             signup={signup} setSignup={setSignup}
             username={username} setUsername={setUsername} />
           </Route>
-          {logged && username === 'rubyred' ?
+          {logged && username === 'rubyred' && tasks ?
             <Route path='/home'>
-              <TaskList />
               <Elders username={username} tasks={tasks} />
+              <TaskList />
             </Route>
             :
             <Route path='/home'>
               <Volunteer tasks={tasks} />
-            </Route>}
+            </Route>
+          }
         </Switch>
       </Router>
     </div>

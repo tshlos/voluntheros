@@ -19,7 +19,7 @@ function Volunteer({tasks, props}) {
                         Details: {task.details === null ? 'None' : task.details}
                         {/* {task.date} */}
                     </Card.Text>
-                    <Button onClick={addTask(task.id)}>Add to My Tasks</Button> 
+                    <Button onClick={() => addTask(task.id)}>Add to My Tasks</Button> 
                 </Card>
             </>
         })
@@ -52,7 +52,7 @@ function Volunteer({tasks, props}) {
                 {/* {task.date} */}
             </Card.Text>
             {/* <Button>Cancel</Button>  */}
-            <Button onClick={removeTask(task.id)}>Cancel</Button> 
+            <Button onClick={() => removeTask(task.id)}>Cancel</Button> 
             </Card>
             </>
         })

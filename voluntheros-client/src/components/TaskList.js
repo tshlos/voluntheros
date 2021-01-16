@@ -46,10 +46,6 @@ function TaskList({ username, tasks }) {
                     onChange={onChange}
                     value={dateValue}
                 />
-                {/* <div className="preview-values">
-                    <h4>Select a Task</h4>
-                    {value}
-                </div> */}
 
                 <MultiSelect
                     onChange={handleOnChange}
