@@ -16,7 +16,7 @@ function App() {
   // const [people, setPeople] = useState();
   const [logged, setLogged] = useState(false)
   const [tasks, setTasks] = useState([])
-  const [loggedOut, setLoggedOut] = useState(false)
+  
 
   // console.log("tasks", tasks);
 
@@ -51,12 +51,12 @@ function App() {
         <Switch>
           <Route path='/login'>
             <Login
-              setLogged={setLogged} username={username} setUsername={setUsername} />
+              setLogged={setLogged} logged={logged} username={username} setUsername={setUsername} />
           </Route>
           
           <Route path='/logout'>
             <LoggingOut
-              setLogged={setLoggedOut} username={username} setUsername={setUsername} />
+              logged={logged} setLogged={setLogged} username={username} setUsername={setUsername} />
           </Route>
 
           <Route path='/signup'>
@@ -71,7 +71,6 @@ function App() {
         </Route> */}
           {logged && username === 'rubyred' ?
             <Route path='/home'>
-
               <Elders username={username} tasks={tasks} />
               <TaskList />
             </Route>
